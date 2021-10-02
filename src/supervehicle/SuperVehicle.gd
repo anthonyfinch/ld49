@@ -13,8 +13,11 @@ var turn_stop_limit = 0.75
 var speed_input = 0
 var rotate_input = 0
 
+var _state = preload("res://src/GameState.tres")
+
 
 func _ready():
+	_state.player = self
 	ray.add_exception(body)
 
 
