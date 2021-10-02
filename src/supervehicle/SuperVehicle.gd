@@ -15,20 +15,49 @@ var rotate_input = 0
 
 var _state = preload("res://src/GameState.tres")
 var _paused = false
+var _death_timer
+var _original_pos
 
 
 func _ready():
+	_original_pos = body.transform.origin
 	_state.player = self
 	ray.add_exception(body)
 	_state.connect("time_up", self, "_pause")
+
+	_death_timer = Timer.new()
+	_death_timer.wait_time = 3.0
+	_death_timer.one_shot = true
+	add_child(_death_timer)
+	_death_timer.connect("timeout", self, "_respawn")
 
 
 func _pause():
 	_paused = true
 
 
+func _unpause():
+	_paused = false
+
+
 func rock_damage():
 	_state.health -= 40
+	if _state.health <= 0:
+		_death()
+
+
+func _death():
+	_pause()
+	_death_timer.start()
+	_state.emit_signal("player_death")
+
+
+func _respawn():
+	_state.health = 100
+	body.transform.origin = _original_pos
+	_unpause()
+	_state.emit_signal("player_respawn")
+
 
 
 func _physics_process(_delta):

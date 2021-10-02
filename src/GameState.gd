@@ -3,6 +3,8 @@ extends Resource
 signal counts_updated
 signal time_up
 signal health_updated
+signal player_death
+signal player_respawn
 
 export (float) var time_limit = 60.0 * 3.0
 

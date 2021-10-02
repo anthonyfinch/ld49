@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://src/supervehicle/SuperVehicle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Camera.gd" type="Script" id=2]
@@ -15,7 +15,8 @@
 [ext_resource path="res://src/ui/LevelEndLabel.gd" type="Script" id=13]
 [ext_resource path="res://src/islands/ Island1.tscn" type="PackedScene" id=14]
 [ext_resource path="res://src/islands/Islands.gd" type="Script" id=15]
-[ext_resource path="res://src/rocks/Rock.gd" type="Script" id=16]
+[ext_resource path="res://src/rocks/Rock1.tscn" type="PackedScene" id=16]
+[ext_resource path="res://src/ui/Death.gd" type="Script" id=17]
 
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("CenterContainer/TextureRect/Viewport")
@@ -39,17 +40,6 @@ height = 20.0
 [sub_resource type="SpatialMaterial" id=10]
 flags_transparent = true
 albedo_color = Color( 0.439216, 0.921569, 0.262745, 0.490196 )
-
-[sub_resource type="PhysicsMaterial" id=15]
-rough = true
-bounce = 0.2
-
-[sub_resource type="BoxShape" id=16]
-
-[sub_resource type="SphereMesh" id=13]
-
-[sub_resource type="SpatialMaterial" id=14]
-albedo_color = Color( 0.356863, 0.290196, 0.290196, 1 )
 
 [sub_resource type="ShortCut" id=11]
 
@@ -98,6 +88,7 @@ collision_mask = 0
 shape = SubResource( 4 )
 
 [node name="SuperVehicle" parent="CenterContainer/TextureRect/Viewport/Level1" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0 )
 
 [node name="Camera" type="Camera" parent="CenterContainer/TextureRect/Viewport/Level1"]
 transform = Transform( 0.650127, -0.383977, 0.655665, 0, 0.862915, 0.505349, -0.759825, -0.328541, 0.561005, 17.7119, 11.4448, 21.5435 )
@@ -149,21 +140,29 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.5, 0, 0 )
 [node name=" Island3" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0, -31 )
 
-[node name="Rock" type="RigidBody" parent="CenterContainer/TextureRect/Viewport/Level1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25.5, 0.5 )
-collision_layer = 16
-collision_mask = 13
-physics_material_override = SubResource( 15 )
-contacts_reported = 3
-contact_monitor = true
-script = ExtResource( 16 )
+[node name="Rocks" type="Spatial" parent="CenterContainer/TextureRect/Viewport/Level1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -16.5 )
 
-[node name="CollisionShape" type="CollisionShape" parent="CenterContainer/TextureRect/Viewport/Level1/Rock"]
-shape = SubResource( 16 )
+[node name="Rock1" parent="CenterContainer/TextureRect/Viewport/Level1/Rocks" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 25.5, 0.5 )
 
-[node name="MeshInstance" type="MeshInstance" parent="CenterContainer/TextureRect/Viewport/Level1/Rock"]
-mesh = SubResource( 13 )
-material/0 = SubResource( 14 )
+[node name="Rock2" parent="CenterContainer/TextureRect/Viewport/Level1/Rocks" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 25.5, -3.5 )
+
+[node name="Rock3" parent="CenterContainer/TextureRect/Viewport/Level1/Rocks" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25.5, 5 )
+
+[node name="Rock4" parent="CenterContainer/TextureRect/Viewport/Level1/Rocks" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 25.5, -1.5 )
+
+[node name="Rock5" parent="CenterContainer/TextureRect/Viewport/Level1/Rocks" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 25.5, -5 )
+
+[node name="Rock6" parent="CenterContainer/TextureRect/Viewport/Level1/Rocks" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 25.5, -3 )
+
+[node name="Rock7" parent="CenterContainer/TextureRect/Viewport/Level1/Rocks" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 25.5, 0.5 )
 
 [node name="Radar" type="Control" parent="."]
 anchor_left = 1.0
@@ -340,5 +339,41 @@ margin_bottom = 38.0
 shortcut = SubResource( 11 )
 text = "Restart"
 script = ExtResource( 11 )
+
+[node name="Death" type="MarginContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 100
+custom_constants/margin_top = 200
+custom_constants/margin_left = 100
+custom_constants/margin_bottom = 200
+script = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="Death"]
+margin_left = 100.0
+margin_top = 200.0
+margin_right = 1820.0
+margin_bottom = 880.0
+
+[node name="CenterContainer" type="CenterContainer" parent="Death/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1713.0
+margin_bottom = 673.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Death/PanelContainer/CenterContainer"]
+margin_left = 773.0
+margin_top = 326.0
+margin_right = 933.0
+margin_bottom = 340.0
+
+[node name="Label" type="Label" parent="Death/PanelContainer/CenterContainer/VBoxContainer"]
+margin_right = 160.0
+margin_bottom = 14.0
+text = "You Died, Respawning....."
 
 [editable path="CenterContainer/TextureRect/Viewport/Level1/SuperVehicle"]
