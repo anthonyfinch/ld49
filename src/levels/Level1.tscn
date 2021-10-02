@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://src/supervehicle/SuperVehicle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Camera.gd" type="Script" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://src/ui/LevelEndLabel.gd" type="Script" id=13]
 [ext_resource path="res://src/islands/ Island1.tscn" type="PackedScene" id=14]
 [ext_resource path="res://src/islands/Islands.gd" type="Script" id=15]
+[ext_resource path="res://src/rocks/Rock.gd" type="Script" id=16]
 
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("CenterContainer/TextureRect/Viewport")
@@ -38,6 +39,17 @@ height = 20.0
 [sub_resource type="SpatialMaterial" id=10]
 flags_transparent = true
 albedo_color = Color( 0.439216, 0.921569, 0.262745, 0.490196 )
+
+[sub_resource type="PhysicsMaterial" id=15]
+rough = true
+bounce = 0.2
+
+[sub_resource type="BoxShape" id=16]
+
+[sub_resource type="SphereMesh" id=13]
+
+[sub_resource type="SpatialMaterial" id=14]
+albedo_color = Color( 0.356863, 0.290196, 0.290196, 1 )
 
 [sub_resource type="ShortCut" id=11]
 
@@ -136,6 +148,22 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.5, 0, 0 )
 
 [node name=" Island3" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0, -31 )
+
+[node name="Rock" type="RigidBody" parent="CenterContainer/TextureRect/Viewport/Level1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25.5, 0.5 )
+collision_layer = 16
+collision_mask = 13
+physics_material_override = SubResource( 15 )
+contacts_reported = 3
+contact_monitor = true
+script = ExtResource( 16 )
+
+[node name="CollisionShape" type="CollisionShape" parent="CenterContainer/TextureRect/Viewport/Level1/Rock"]
+shape = SubResource( 16 )
+
+[node name="MeshInstance" type="MeshInstance" parent="CenterContainer/TextureRect/Viewport/Level1/Rock"]
+mesh = SubResource( 13 )
+material/0 = SubResource( 14 )
 
 [node name="Radar" type="Control" parent="."]
 anchor_left = 1.0

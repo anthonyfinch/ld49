@@ -27,6 +27,10 @@ func _pause():
 	_paused = true
 
 
+func rock_damage():
+	_state.health -= 40
+
+
 func _physics_process(_delta):
 	if not _paused:
 		mesh.transform.origin = body.transform.origin

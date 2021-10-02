@@ -2,15 +2,22 @@ extends Resource
 
 signal counts_updated
 signal time_up
+signal health_updated
 
 export (float) var time_limit = 60.0 * 3.0
 
+var health = 100 setget set_health
 var player = null
 var people = null
 var on_board = 0
 var safe = 0
 var died = 0
 var time = 0.0
+
+
+func set_health(new_val):
+	health = new_val
+	emit_signal("health_updated")
 
 
 func person_died():
