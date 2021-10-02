@@ -13,6 +13,11 @@ var died = 0
 var time = 0.0
 
 
+func person_died():
+	died += 1
+	emit_signal("counts_updated")
+
+
 func collect_person():
 	on_board += 1
 	emit_signal("counts_updated")

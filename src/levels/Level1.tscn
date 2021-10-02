@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://src/supervehicle/SuperVehicle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Camera.gd" type="Script" id=2]
@@ -13,7 +13,7 @@
 [ext_resource path="res://src/ui/RestartLevelButton.gd" type="Script" id=11]
 [ext_resource path="res://src/ui/TimeUp.gd" type="Script" id=12]
 [ext_resource path="res://src/ui/LevelEndLabel.gd" type="Script" id=13]
-[ext_resource path="res://src/islands/Island.gd" type="Script" id=14]
+[ext_resource path="res://src/islands/ Island1.tscn" type="PackedScene" id=14]
 [ext_resource path="res://src/islands/Islands.gd" type="Script" id=15]
 
 [sub_resource type="ViewportTexture" id=1]
@@ -38,15 +38,6 @@ height = 20.0
 [sub_resource type="SpatialMaterial" id=10]
 flags_transparent = true
 albedo_color = Color( 0.439216, 0.921569, 0.262745, 0.490196 )
-
-[sub_resource type="ConcavePolygonShape" id=7]
-data = PoolVector3Array( 0, 2.5, 20, 20, -2.5, 20, -20, -2.5, 20, 0, 2.5, -20, -20, -2.5, -20, 20, -2.5, -20, 0, 2.5, 20, 0, 2.5, -20, 20, -2.5, 20, 0, 2.5, -20, 20, -2.5, -20, 20, -2.5, 20, 0, 2.5, -20, 0, 2.5, 20, -20, -2.5, -20, 0, 2.5, 20, -20, -2.5, 20, -20, -2.5, -20, -20, -2.5, 20, 20, -2.5, 20, -20, -2.5, -20, 20, -2.5, 20, 20, -2.5, -20, -20, -2.5, -20 )
-
-[sub_resource type="PrismMesh" id=5]
-size = Vector3( 40, 5, 40 )
-
-[sub_resource type="SpatialMaterial" id=6]
-albedo_color = Color( 0.337255, 0.305882, 0.305882, 1 )
 
 [sub_resource type="ShortCut" id=11]
 
@@ -107,19 +98,19 @@ offset = Vector3( 0, 20, 20 )
 script = ExtResource( 5 )
 
 [node name="Person1" parent="CenterContainer/TextureRect/Viewport/Level1/People" instance=ExtResource( 3 )]
-transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -22.5, 0.2, 0 )
+transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -31, 5.7, 0 )
 
 [node name="Person2" parent="CenterContainer/TextureRect/Viewport/Level1/People" instance=ExtResource( 3 )]
-transform = Transform( 0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -12.5, 0.2, 0 )
+transform = Transform( 0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -27.5, 6.7, 0 )
 
 [node name="Person3" parent="CenterContainer/TextureRect/Viewport/Level1/People" instance=ExtResource( 3 )]
-transform = Transform( 0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -22.5, 0.2, 11.5 )
+transform = Transform( 0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -28.5, 9.7, 6 )
 
 [node name="Person4" parent="CenterContainer/TextureRect/Viewport/Level1/People" instance=ExtResource( 3 )]
-transform = Transform( 0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, -22.5, 0.2, -17 )
+transform = Transform( 0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, -27, 11.2, -1.5 )
 
 [node name="Person5" parent="CenterContainer/TextureRect/Viewport/Level1/People" instance=ExtResource( 3 )]
-transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 14, 3.25, 15 )
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 14, 3.25, -29 )
 
 [node name="SafePoint" type="Spatial" parent="CenterContainer/TextureRect/Viewport/Level1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 5.5, 0 )
@@ -137,21 +128,14 @@ material/0 = SubResource( 10 )
 [node name="Islands" type="Spatial" parent="CenterContainer/TextureRect/Viewport/Level1"]
 script = ExtResource( 15 )
 
-[node name=" Island" type="Spatial" parent="CenterContainer/TextureRect/Viewport/Level1/Islands"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0, 0 )
-script = ExtResource( 14 )
-shake = 0.2
+[node name=" Island1" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
+safe = true
 
-[node name="StaticBody" type="StaticBody" parent="CenterContainer/TextureRect/Viewport/Level1/Islands/ Island"]
-collision_layer = 8
-collision_mask = 0
+[node name=" Island2" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.5, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="CenterContainer/TextureRect/Viewport/Level1/Islands/ Island/StaticBody"]
-shape = SubResource( 7 )
-
-[node name="Mesh" type="MeshInstance" parent="CenterContainer/TextureRect/Viewport/Level1/Islands/ Island"]
-mesh = SubResource( 5 )
-material/0 = SubResource( 6 )
+[node name=" Island3" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5, 0, -31 )
 
 [node name="Radar" type="Control" parent="."]
 anchor_left = 1.0
@@ -264,6 +248,18 @@ fit_content_height = true
 margin_top = 102.0
 margin_right = 234.0
 margin_bottom = 132.0
+size_flags_horizontal = 3
+bbcode_enabled = true
+bbcode_text = "[color=green]Safe: 3
+"
+text = "Safe: 3
+"
+fit_content_height = true
+
+[node name="Died" type="RichTextLabel" parent="PeopleCounts"]
+margin_top = 136.0
+margin_right = 234.0
+margin_bottom = 166.0
 size_flags_horizontal = 3
 bbcode_enabled = true
 bbcode_text = "[color=green]Safe: 3

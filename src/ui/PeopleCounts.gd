@@ -4,12 +4,14 @@ onready var _stranded = $Stranded
 onready var _in_peril = $InPeril
 onready var _on_board = $OnBoard
 onready var _safe = $Safe
+onready var _died = $Died
 
 
 var _stranded_count = 0
 var _peril_count = 0
 
 var _state = preload("res://src/GameState.tres")
+var _first = true
 
 
 func _ready():
@@ -28,15 +30,17 @@ func _process(_delta):
 				stranded += 1
 
 				
-		if stranded != _stranded_count:
+		if stranded != _stranded_count or _first:
 			var p_template = "[color=yellow]Stranded: %s[/color]\n"
 			_stranded.bbcode_text = p_template % stranded
 			_stranded_count = stranded
 
-		if in_peril != _peril_count:
+		if in_peril != _peril_count or _first:
 			var i_template = "[color=red]In Peril!: %s[/color]\n"
 			_in_peril.bbcode_text = i_template % in_peril
 			_peril_count = in_peril
+
+		_first = false
 
 
 func _update_counts():
@@ -45,3 +49,6 @@ func _update_counts():
 
 	var s_template = "[color=green]Safe: %s[/color]\n"
 	_safe.bbcode_text = s_template % _state.safe
+
+	var d_template = "[color=red]Died: %s[/color]\n"
+	_died.bbcode_text = d_template % _state.died
