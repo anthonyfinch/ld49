@@ -7,7 +7,7 @@
 [ext_resource path="res://src/people/People.gd" type="Script" id=5]
 
 [sub_resource type="ViewportTexture" id=1]
-viewport_path = NodePath("TextureRect/Viewport")
+viewport_path = NodePath("CenterContainer/TextureRect/Viewport")
 
 [sub_resource type="PlaneMesh" id=2]
 size = Vector2( 100, 100 )
@@ -34,70 +34,78 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -1.0
-margin_right = -1.0
+margin_right = -0.999878
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+rect_min_size = Vector2( 1920, 1080 )
 texture = SubResource( 1 )
 flip_v = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Viewport" type="Viewport" parent="TextureRect"]
+[node name="Viewport" type="Viewport" parent="CenterContainer/TextureRect"]
 size = Vector2( 1920, 1080 )
 
-[node name="Level1" type="Spatial" parent="TextureRect/Viewport"]
+[node name="Level1" type="Spatial" parent="CenterContainer/TextureRect/Viewport"]
 
-[node name="Floor" type="Spatial" parent="TextureRect/Viewport/Level1"]
+[node name="Floor" type="Spatial" parent="CenterContainer/TextureRect/Viewport/Level1"]
 
-[node name="MeshInstance" type="MeshInstance" parent="TextureRect/Viewport/Level1/Floor"]
+[node name="MeshInstance" type="MeshInstance" parent="CenterContainer/TextureRect/Viewport/Level1/Floor"]
 mesh = SubResource( 2 )
 material/0 = SubResource( 3 )
 
-[node name="StaticBody" type="StaticBody" parent="TextureRect/Viewport/Level1/Floor/MeshInstance"]
+[node name="StaticBody" type="StaticBody" parent="CenterContainer/TextureRect/Viewport/Level1/Floor/MeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50, 0 )
 collision_mask = 0
 
-[node name="CollisionShape" type="CollisionShape" parent="TextureRect/Viewport/Level1/Floor/MeshInstance/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="CenterContainer/TextureRect/Viewport/Level1/Floor/MeshInstance/StaticBody"]
 shape = SubResource( 4 )
 
-[node name="SuperVehicle" parent="TextureRect/Viewport/Level1" instance=ExtResource( 1 )]
+[node name="SuperVehicle" parent="CenterContainer/TextureRect/Viewport/Level1" instance=ExtResource( 1 )]
 
-[node name="Camera" type="Camera" parent="TextureRect/Viewport/Level1"]
+[node name="Camera" type="Camera" parent="CenterContainer/TextureRect/Viewport/Level1"]
 transform = Transform( 0.650127, -0.383977, 0.655665, 0, 0.862915, 0.505349, -0.759825, -0.328541, 0.561005, 17.7119, 11.4448, 21.5435 )
 current = true
 script = ExtResource( 2 )
 target_path = NodePath("../SuperVehicle/Mesh")
 offset = Vector3( 0, 20, 20 )
 
-[node name="Island" type="MeshInstance" parent="TextureRect/Viewport/Level1"]
+[node name="Island" type="MeshInstance" parent="CenterContainer/TextureRect/Viewport/Level1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 0 )
 mesh = SubResource( 5 )
 material/0 = SubResource( 6 )
 
-[node name="StaticBody" type="StaticBody" parent="TextureRect/Viewport/Level1/Island"]
+[node name="StaticBody" type="StaticBody" parent="CenterContainer/TextureRect/Viewport/Level1/Island"]
 
-[node name="CollisionShape" type="CollisionShape" parent="TextureRect/Viewport/Level1/Island/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="CenterContainer/TextureRect/Viewport/Level1/Island/StaticBody"]
 shape = SubResource( 7 )
 
-[node name="People" type="Spatial" parent="TextureRect/Viewport/Level1"]
+[node name="People" type="Spatial" parent="CenterContainer/TextureRect/Viewport/Level1"]
 script = ExtResource( 5 )
 
-[node name="Person1" parent="TextureRect/Viewport/Level1/People" instance=ExtResource( 3 )]
+[node name="Person1" parent="CenterContainer/TextureRect/Viewport/Level1/People" instance=ExtResource( 3 )]
 transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -22.5, 0.2, 0 )
 
-[node name="Person2" parent="TextureRect/Viewport/Level1/People" instance=ExtResource( 3 )]
+[node name="Person2" parent="CenterContainer/TextureRect/Viewport/Level1/People" instance=ExtResource( 3 )]
 transform = Transform( 0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -12.5, 0.2, 0 )
 
-[node name="Person3" parent="TextureRect/Viewport/Level1/People" instance=ExtResource( 3 )]
+[node name="Person3" parent="CenterContainer/TextureRect/Viewport/Level1/People" instance=ExtResource( 3 )]
 transform = Transform( 0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -22.5, 0.2, 11.5 )
 
-[node name="Person4" parent="TextureRect/Viewport/Level1/People" instance=ExtResource( 3 )]
+[node name="Person4" parent="CenterContainer/TextureRect/Viewport/Level1/People" instance=ExtResource( 3 )]
 transform = Transform( 0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, -22.5, 0.2, -17 )
 
-[node name="Person5" parent="TextureRect/Viewport/Level1/People" instance=ExtResource( 3 )]
+[node name="Person5" parent="CenterContainer/TextureRect/Viewport/Level1/People" instance=ExtResource( 3 )]
 transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -39, 0.2, 0 )
 
 [node name="Radar" type="Control" parent="."]
@@ -117,3 +125,5 @@ __meta__ = {
 }
 bg_color = Color( 0.376471, 1, 0.588235, 0.34902 )
 scale = 2.0
+
+[editable path="CenterContainer/TextureRect/Viewport/Level1/SuperVehicle"]
