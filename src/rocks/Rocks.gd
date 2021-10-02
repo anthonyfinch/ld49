@@ -1,6 +1,7 @@
 extends Spatial
 
 
+export (bool) var active = true
 export (float) var start_timeout = 5.0
 export (float) var end_timeout = 1.0
 
@@ -29,8 +30,9 @@ func _ready():
 func _trigger_rockstorm():
 	_timer.wait_time = _timeout
 	_timer.start()
-	var storm = _rock_storm.instance()
-	add_child(storm)
-	storm.transform.origin.y = transform.origin.y
-	storm.transform.origin.x = _state.player.body.transform.origin.x
-	storm.transform.origin.z = _state.player.body.transform.origin.z
+	if active:
+		var storm = _rock_storm.instance()
+		add_child(storm)
+		storm.transform.origin.y = transform.origin.y
+		storm.transform.origin.x = _state.player.body.transform.origin.x
+		storm.transform.origin.z = _state.player.body.transform.origin.z

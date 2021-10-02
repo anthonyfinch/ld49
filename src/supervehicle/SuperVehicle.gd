@@ -5,6 +5,7 @@ onready var body = $Body
 onready var mesh = $Mesh
 onready var ray = $Mesh/RayCast
 
+var jump_force = 15
 var acceleration = 50
 var steering = 21.0
 var turn_speed = 5
@@ -17,6 +18,8 @@ var _state = preload("res://src/GameState.tres")
 var _paused = false
 var _death_timer
 var _original_pos
+var _should_jump = false
+var _jumped = false
 
 
 func _ready():
@@ -66,10 +69,20 @@ func _physics_process(_delta):
 		mesh.transform.origin = body.transform.origin
 		body.add_central_force(-mesh.global_transform.basis.z * speed_input)
 
+		if _should_jump and not _jumped:
+			_jumped = true
+			_should_jump = false
+			body.apply_central_impulse(mesh.global_transform.basis.y * jump_force)
+
 
 func _process(delta):
 	if not ray.is_colliding() or _paused:
 		return
+
+	if not _jumped and Input.is_action_pressed("jump"):
+		_should_jump = true
+	elif _jumped:
+		_jumped = false
 
 	speed_input = 0
 	speed_input += Input.get_action_strength("accelerate")
