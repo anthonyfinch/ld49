@@ -37,8 +37,7 @@ __meta__ = {
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -1.0
-margin_right = -0.999878
+margin_right = 0.00012207
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -125,5 +124,103 @@ __meta__ = {
 }
 bg_color = Color( 0.376471, 1, 0.588235, 0.34902 )
 scale = 2.0
+
+[node name="TopUI" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+margin_bottom = 135.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="TopUI"]
+margin_right = 1920.0
+margin_bottom = 117.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 50
+custom_constants/margin_top = 15
+custom_constants/margin_left = 50
+custom_constants/margin_bottom = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="TopUI/MarginContainer"]
+margin_left = 50.0
+margin_top = 15.0
+margin_right = 1870.0
+margin_bottom = 102.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+value = 100.0
+
+[node name="TimerContainer" type="CenterContainer" parent="TopUI"]
+margin_top = 121.0
+margin_right = 1920.0
+margin_bottom = 135.0
+
+[node name="Label" type="Label" parent="TopUI/TimerContainer"]
+margin_left = 890.0
+margin_right = 1029.0
+margin_bottom = 14.0
+text = "Time Remaining: 5:00"
+
+[node name="PeopleCounts" type="VBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 52.0
+margin_top = -301.0
+margin_right = 286.0
+margin_bottom = -38.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stranded" type="RichTextLabel" parent="PeopleCounts"]
+margin_right = 234.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+bbcode_enabled = true
+bbcode_text = "[color=yellow]Stranded: 3
+"
+text = "Stranded: 3
+"
+fit_content_height = true
+
+[node name="InPeril" type="RichTextLabel" parent="PeopleCounts"]
+margin_top = 34.0
+margin_right = 234.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+bbcode_enabled = true
+bbcode_text = "[color=red]In Peril: 3
+"
+text = "In Peril: 3
+"
+fit_content_height = true
+
+[node name="OnBoard" type="RichTextLabel" parent="PeopleCounts"]
+margin_top = 68.0
+margin_right = 234.0
+margin_bottom = 98.0
+size_flags_horizontal = 3
+bbcode_enabled = true
+bbcode_text = "[color=blue]On Board: 3
+"
+text = "On Board: 3
+"
+fit_content_height = true
+
+[node name="Safe" type="RichTextLabel" parent="PeopleCounts"]
+margin_top = 102.0
+margin_right = 234.0
+margin_bottom = 132.0
+size_flags_horizontal = 3
+bbcode_enabled = true
+bbcode_text = "[color=green]Safe: 3
+"
+text = "Safe: 3
+"
+fit_content_height = true
 
 [editable path="CenterContainer/TextureRect/Viewport/Level1/SuperVehicle"]
