@@ -41,9 +41,10 @@ func _unpause():
 
 
 func rock_damage():
-	_state.health -= 40
-	if _state.health <= 0:
-		_death()
+	if not _paused:
+		_state.health -= 40
+		if _state.health <= 0:
+			_death()
 
 
 func _death():

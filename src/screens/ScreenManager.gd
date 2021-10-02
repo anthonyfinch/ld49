@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 
 var _screens = {}
@@ -14,11 +14,25 @@ func _ready():
 
 
 func _goto_screen(screen):
+	var new_screen
+	var others = []
 	for screen_name in _screens:
 		if screen_name == screen:
-			_screens[screen_name].visible = true
+			new_screen = _screens[screen_name]
+			# _screens[screen_name].visible = true
 		else:
-			_screens[screen_name].visible = false
+			others.push_back(_screens[screen_name])
+			# _screens[screen_name].visible = false
+
+	assert(new_screen)
+
+	new_screen.visible = true
+
+	for screen in others:
+		screen.visible = false
+
+	if new_screen.has_method("enter"):
+		new_screen.enter()
 
 
 func _quit():

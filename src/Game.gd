@@ -6,6 +6,7 @@ var _state = preload("res://src/GameState.tres")
 
 func _ready():
 	_state.time = _state.time_limit
+	_state.reset_counts()
 
 
 func _process(delta):
