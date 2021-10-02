@@ -14,20 +14,27 @@ var speed_input = 0
 var rotate_input = 0
 
 var _state = preload("res://src/GameState.tres")
+var _paused = false
 
 
 func _ready():
 	_state.player = self
 	ray.add_exception(body)
+	_state.connect("time_up", self, "_pause")
+
+
+func _pause():
+	_paused = true
 
 
 func _physics_process(_delta):
-	mesh.transform.origin = body.transform.origin
-	body.add_central_force(-mesh.global_transform.basis.z * speed_input)
+	if not _paused:
+		mesh.transform.origin = body.transform.origin
+		body.add_central_force(-mesh.global_transform.basis.z * speed_input)
 
 
 func _process(delta):
-	if not ray.is_colliding():
+	if not ray.is_colliding() or _paused:
 		return
 
 	speed_input = 0

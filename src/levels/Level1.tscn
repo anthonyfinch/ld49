@@ -1,10 +1,15 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://src/supervehicle/SuperVehicle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Camera.gd" type="Script" id=2]
 [ext_resource path="res://src/people/Person.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Radar.gd" type="Script" id=4]
 [ext_resource path="res://src/people/People.gd" type="Script" id=5]
+[ext_resource path="res://src/ui/HealthBar.gd" type="Script" id=6]
+[ext_resource path="res://src/ui/TimerLabel.gd" type="Script" id=7]
+[ext_resource path="res://src/Game.gd" type="Script" id=8]
+[ext_resource path="res://src/safepoint/SafePoint.gd" type="Script" id=9]
+[ext_resource path="res://src/ui/PeopleCounts.gd" type="Script" id=10]
 
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("CenterContainer/TextureRect/Viewport")
@@ -27,12 +32,25 @@ albedo_color = Color( 0.337255, 0.305882, 0.305882, 1 )
 [sub_resource type="ConcavePolygonShape" id=7]
 data = PoolVector3Array( 0, 2.5, 20, 20, -2.5, 20, -20, -2.5, 20, 0, 2.5, -20, -20, -2.5, -20, 20, -2.5, -20, 0, 2.5, 20, 0, 2.5, -20, 20, -2.5, 20, 0, 2.5, -20, 20, -2.5, -20, 20, -2.5, 20, 0, 2.5, -20, 0, 2.5, 20, -20, -2.5, -20, 0, 2.5, 20, -20, -2.5, 20, -20, -2.5, -20, -20, -2.5, 20, 20, -2.5, 20, -20, -2.5, -20, 20, -2.5, 20, 20, -2.5, -20, -20, -2.5, -20 )
 
-[node name="Control" type="Control"]
+[sub_resource type="SphereShape" id=8]
+radius = 10.0
+
+[sub_resource type="SphereMesh" id=9]
+radius = 10.0
+height = 20.0
+
+[sub_resource type="SpatialMaterial" id=10]
+flags_transparent = true
+albedo_color = Color( 0.439216, 0.921569, 0.262745, 0.490196 )
+
+[node name="Game" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+time_limit = 30.0
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
@@ -76,7 +94,7 @@ shape = SubResource( 4 )
 transform = Transform( 0.650127, -0.383977, 0.655665, 0, 0.862915, 0.505349, -0.759825, -0.328541, 0.561005, 17.7119, 11.4448, 21.5435 )
 current = true
 script = ExtResource( 2 )
-target_path = NodePath("../SuperVehicle/Mesh")
+target_path = NodePath("../../../../../../Game/CenterContainer/TextureRect/Viewport/Level1/SuperVehicle/Mesh")
 offset = Vector3( 0, 20, 20 )
 
 [node name="Island" type="MeshInstance" parent="CenterContainer/TextureRect/Viewport/Level1"]
@@ -106,6 +124,19 @@ transform = Transform( 0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, -
 
 [node name="Person5" parent="CenterContainer/TextureRect/Viewport/Level1/People" instance=ExtResource( 3 )]
 transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -39, 0.2, 0 )
+
+[node name="SafePoint" type="Spatial" parent="CenterContainer/TextureRect/Viewport/Level1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 5.5, 0 )
+script = ExtResource( 9 )
+
+[node name="Area" type="Area" parent="CenterContainer/TextureRect/Viewport/Level1/SafePoint"]
+
+[node name="CollisionShape" type="CollisionShape" parent="CenterContainer/TextureRect/Viewport/Level1/SafePoint/Area"]
+shape = SubResource( 8 )
+
+[node name="MeshInstance" type="MeshInstance" parent="CenterContainer/TextureRect/Viewport/Level1/SafePoint"]
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
 
 [node name="Radar" type="Control" parent="."]
 anchor_left = 1.0
@@ -153,6 +184,7 @@ margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 value = 100.0
+script = ExtResource( 6 )
 
 [node name="TimerContainer" type="CenterContainer" parent="TopUI"]
 margin_top = 121.0
@@ -164,6 +196,7 @@ margin_left = 890.0
 margin_right = 1029.0
 margin_bottom = 14.0
 text = "Time Remaining: 5:00"
+script = ExtResource( 7 )
 
 [node name="PeopleCounts" type="VBoxContainer" parent="."]
 anchor_top = 1.0
@@ -172,6 +205,7 @@ margin_left = 52.0
 margin_top = -301.0
 margin_right = 286.0
 margin_bottom = -38.0
+script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -181,7 +215,7 @@ margin_right = 234.0
 margin_bottom = 30.0
 size_flags_horizontal = 3
 bbcode_enabled = true
-bbcode_text = "[color=yellow]Stranded: 3
+bbcode_text = "[center][color=yellow]Stranded: 3[/color]
 "
 text = "Stranded: 3
 "
@@ -193,7 +227,7 @@ margin_right = 234.0
 margin_bottom = 64.0
 size_flags_horizontal = 3
 bbcode_enabled = true
-bbcode_text = "[color=red]In Peril: 3
+bbcode_text = "[color=red]In Peril: 3[/color]
 "
 text = "In Peril: 3
 "

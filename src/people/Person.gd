@@ -9,8 +9,12 @@ onready var detector = $PlayerDetector
 
 func _ready():
 	detector.connect("body_entered", self, "_on_player_entered")
+	connect("tree_exited", self, "_on_remove")
 
 
 func _on_player_entered(_player):
-	emit_signal("person_collected", self)
 	queue_free()
+
+
+func _on_remove():
+	emit_signal("person_collected", self)
