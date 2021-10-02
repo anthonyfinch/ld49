@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/screens/Button.gd" type="Script" id=1]
+
+[node name="Game" type="Control"]
+margin_right = 730.0
+margin_bottom = 321.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 597.0
+margin_top = 103.0
+margin_right = 637.0
+margin_bottom = 134.0
+text = "Game
+"
+
+[node name="ScreenButton" type="Button" parent="."]
+margin_left = 408.0
+margin_top = 226.0
+margin_right = 448.0
+margin_bottom = 246.0
+text = "Quit"
+script = ExtResource( 1 )
