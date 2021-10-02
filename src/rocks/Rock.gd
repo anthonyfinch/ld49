@@ -15,7 +15,7 @@ func _ready():
 func _on_body_entered(body):
 	var mat = $MeshInstance["material/0"]
 	if not _hit:
-		_tween.interpolate_property(mat, "albedo_color:a", 1, 0, 1, Tween.TRANS_LINEAR, Tween.EASE_IN)
+		_tween.interpolate_property(mat, "albedo_color:a", 1, 0, 4, Tween.TRANS_LINEAR, Tween.EASE_IN)
 		_tween.start()
 		_tween.connect("tween_all_completed", self, "_on_fade_out")
 		_hit = true
