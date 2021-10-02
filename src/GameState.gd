@@ -3,6 +3,8 @@ extends Resource
 signal counts_updated
 signal time_up
 
+export (float) var time_limit = 60.0 * 3.0
+
 var player = null
 var people = null
 var on_board = 0

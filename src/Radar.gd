@@ -36,7 +36,6 @@ func _process(_delta):
 
 
 func _draw():
-	# background circle
 	draw_circle(_center, _radius, bg_color)
 
 	for person in _people:

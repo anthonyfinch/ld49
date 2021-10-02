@@ -1,12 +1,11 @@
 extends Control
 
 
-export (float) var time_limit = 60.0 * 3.0
 
 var _state = preload("res://src/GameState.tres")
 
 func _ready():
-	_state.time = time_limit
+	_state.time = _state.time_limit
 
 
 func _process(delta):
