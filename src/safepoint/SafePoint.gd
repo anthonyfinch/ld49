@@ -6,6 +6,7 @@ onready var detector = $Area
 var _state = preload("res://src/GameState.tres")
 
 func _ready():
+	_state.zone = self
 	detector.connect("body_entered", self, "_on_player_entered")
 
 

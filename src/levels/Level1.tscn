@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://src/supervehicle/SuperVehicle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Camera.gd" type="Script" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://src/palette/end-13-alpha.tres" type="Material" id=19]
 [ext_resource path="res://src/ui/PunchControl.gd" type="Script" id=20]
 [ext_resource path="res://src/ui/fonts/Amatic_SC/AmaticSC-Regular.ttf" type="DynamicFontData" id=21]
+[ext_resource path="res://src/ui/radar-shi.png" type="Texture" id=22]
 
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("CenterContainer/TextureRect/Viewport")
@@ -161,7 +162,7 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -290, 1
 shape = SubResource( 9 )
 
 [node name="SuperVehicle" parent="CenterContainer/TextureRect/Viewport/Level1" instance=ExtResource( 1 )]
-transform = Transform( -0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, -225, 20, 92 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -225, 20, 92 )
 
 [node name="Camera" type="Camera" parent="CenterContainer/TextureRect/Viewport/Level1"]
 transform = Transform( 0.650127, -0.383977, 0.655665, 0, 0.862915, 0.505349, -0.759825, -0.328541, 0.561005, 17.7119, 11.4448, 21.5435 )
@@ -230,14 +231,27 @@ margin_left = -374.0
 margin_top = -308.0
 margin_right = -58.0
 margin_bottom = -54.0
-rect_rotation = 6.5
 rect_pivot_offset = Vector2( 158, 127 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-bg_color = Color( 0.376471, 1, 0.588235, 0.34902 )
+bg_color = Color( 0.388235, 0.780392, 0.301961, 0.490196 )
+stranded_person_color = Color( 0.0705882, 0.305882, 0.537255, 1 )
+peril_person_color = Color( 0.894118, 0.231373, 0.266667, 1 )
+zone_color = Color( 0.388235, 0.780392, 0.301961, 1 )
 scale = 2.0
+
+[node name="TextureRect" type="TextureRect" parent="Radar"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+texture = ExtResource( 22 )
 
 [node name="TopUI" type="VBoxContainer" parent="."]
 anchor_right = 1.0

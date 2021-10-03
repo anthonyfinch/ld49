@@ -12,6 +12,7 @@ export var level = "res://src/levels/Level1.tscn"
 var health = 100 setget set_health
 var player = null
 var people = null
+var zone = null
 var on_board = 0
 var safe = 0
 var died = 0
