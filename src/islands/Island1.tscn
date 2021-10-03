@@ -14,7 +14,7 @@ radial_segments = 6
 
 [node name=" Island1" type="Spatial"]
 script = ExtResource( 1 )
-shake = 0.2
+shake = 0.8
 
 [node name="Spatial" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -26, 0 )
