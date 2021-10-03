@@ -24,7 +24,7 @@ material/0 = SubResource( 2 )
 [node name="RayCast" type="RayCast" parent="Mesh"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -0.5 )
 enabled = true
-collision_mask = 17
+collision_mask = 25
 
 [node name="Body" type="RigidBody" parent="."]
 collision_layer = 2
