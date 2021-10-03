@@ -3,7 +3,7 @@ extends Spatial
 export (float) var shake = 1.0
 export (bool) var safe = false
 
-onready var _mesh = $Mesh
+onready var _mesh = $Spatial/Mesh
 
 var _tween
 var sinking = false

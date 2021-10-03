@@ -2,7 +2,7 @@
 
 [ext_resource path="res://src/ui/fonts/Roboto/Roboto-Regular.ttf" type="DynamicFontData" id=1]
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.74902, 0.862745, 0.878431, 1 )
 border_width_left = 4
 border_width_top = 4
@@ -13,13 +13,13 @@ corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 32
 use_filter = true
 font_data = ExtResource( 1 )
 
 [resource]
-default_font = SubResource( 1 )
+default_font = SubResource( 2 )
 Label/colors/font_color = Color( 1, 1, 1, 1 )
 Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
 Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
@@ -29,4 +29,4 @@ Label/constants/shadow_offset_x = 1
 Label/constants/shadow_offset_y = 1
 Label/fonts/font = null
 Label/styles/normal = null
-Panel/styles/panel = SubResource( 2 )
+Panel/styles/panel = SubResource( 1 )
