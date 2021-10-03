@@ -37,19 +37,19 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Title/VBoxContainer"]
-margin_right = 204.0
+margin_right = 476.0
 margin_bottom = 174.0
 theme = ExtResource( 2 )
 custom_fonts/font = SubResource( 1 )
-text = "LD49"
+text = "Silex Ahoy"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ScreenButton" type="Button" parent="Title/VBoxContainer"]
 margin_top = 178.0
-margin_right = 204.0
-margin_bottom = 250.0
+margin_right = 476.0
+margin_bottom = 222.0
 theme = ExtResource( 2 )
 text = "Start"
 script = ExtResource( 1 )
