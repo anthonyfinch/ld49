@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://src/supervehicle/SuperVehicle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Camera.gd" type="Script" id=2]
@@ -13,12 +13,14 @@
 [ext_resource path="res://src/ui/RestartLevelButton.gd" type="Script" id=11]
 [ext_resource path="res://src/ui/TimeUp.gd" type="Script" id=12]
 [ext_resource path="res://src/ui/LevelEndLabel.gd" type="Script" id=13]
-[ext_resource path="res://src/islands/Island1.tscn" type="PackedScene" id=14]
-[ext_resource path="res://src/islands/Islands.gd" type="Script" id=15]
+[ext_resource path="res://src/ui/fonts/Amatic_SC/Amatic.tres" type="DynamicFont" id=14]
+[ext_resource path="res://src/islands/IslandsLevel1.tscn" type="PackedScene" id=15]
 [ext_resource path="res://src/rocks/Rocks.gd" type="Script" id=16]
 [ext_resource path="res://src/ui/Death.gd" type="Script" id=17]
 [ext_resource path="res://src/palette/end-19.tres" type="Material" id=18]
 [ext_resource path="res://src/palette/end-13-alpha.tres" type="Material" id=19]
+[ext_resource path="res://src/ui/PunchControl.gd" type="Script" id=20]
+[ext_resource path="res://src/ui/fonts/Amatic_SC/AmaticSC-Regular.ttf" type="DynamicFontData" id=21]
 
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("CenterContainer/TextureRect/Viewport")
@@ -28,6 +30,9 @@ size = Vector2( 500, 500 )
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 250, 50, 250 )
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 250, 250, 50 )
 
 [sub_resource type="SphereShape" id=4]
 radius = 10.0
@@ -40,6 +45,24 @@ height = 20.0
 size = Vector3( 20, 20, 20 )
 
 [sub_resource type="SpatialMaterial" id=7]
+
+[sub_resource type="StyleBoxFlat" id=11]
+content_margin_left = 30.0
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="DynamicFont" id=12]
+size = 64
+use_filter = true
+font_data = ExtResource( 21 )
 
 [sub_resource type="ShortCut" id=8]
 
@@ -88,6 +111,32 @@ collision_mask = 0
 [node name="CollisionShape" type="CollisionShape" parent="CenterContainer/TextureRect/Viewport/Level1/Floor/MeshInstance/StaticBody"]
 shape = SubResource( 3 )
 
+[node name="Walls" type="Spatial" parent="CenterContainer/TextureRect/Viewport/Level1"]
+
+[node name="Wall1" type="StaticBody" parent="CenterContainer/TextureRect/Viewport/Level1/Walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 108.5, -290 )
+
+[node name="CollisionShape" type="CollisionShape" parent="CenterContainer/TextureRect/Viewport/Level1/Walls/Wall1"]
+shape = SubResource( 9 )
+
+[node name="Wall2" type="StaticBody" parent="CenterContainer/TextureRect/Viewport/Level1/Walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 108.5, 290 )
+
+[node name="CollisionShape" type="CollisionShape" parent="CenterContainer/TextureRect/Viewport/Level1/Walls/Wall2"]
+shape = SubResource( 9 )
+
+[node name="Wall3" type="StaticBody" parent="CenterContainer/TextureRect/Viewport/Level1/Walls"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 290, 108.5, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="CenterContainer/TextureRect/Viewport/Level1/Walls/Wall3"]
+shape = SubResource( 9 )
+
+[node name="Wall4" type="StaticBody" parent="CenterContainer/TextureRect/Viewport/Level1/Walls"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -290, 108.5, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="CenterContainer/TextureRect/Viewport/Level1/Walls/Wall4"]
+shape = SubResource( 9 )
+
 [node name="SuperVehicle" parent="CenterContainer/TextureRect/Viewport/Level1" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 20, 13 )
 
@@ -102,22 +151,22 @@ offset = Vector3( 0, 20, 20 )
 script = ExtResource( 5 )
 
 [node name="Person1" parent="CenterContainer/TextureRect/Viewport/Level1/People" instance=ExtResource( 3 )]
-transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -31, 5.7, 0 )
+transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -31, 5.7, -119.5 )
 
 [node name="Person2" parent="CenterContainer/TextureRect/Viewport/Level1/People" instance=ExtResource( 3 )]
-transform = Transform( 0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -27.5, 6.7, 0 )
+transform = Transform( 0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -27.5, 6.7, -119.5 )
 
 [node name="Person3" parent="CenterContainer/TextureRect/Viewport/Level1/People" instance=ExtResource( 3 )]
-transform = Transform( 0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -28.5, 9.7, 6 )
+transform = Transform( 0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -177, 9.7, 6 )
 
 [node name="Person4" parent="CenterContainer/TextureRect/Viewport/Level1/People" instance=ExtResource( 3 )]
-transform = Transform( 0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, -27, 11.2, -1.5 )
+transform = Transform( 0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, -175.5, 11.2, -1.5 )
 
 [node name="Person5" parent="CenterContainer/TextureRect/Viewport/Level1/People" instance=ExtResource( 3 )]
-transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 14, 3.25, -29 )
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 139, 3.25, 61.5 )
 
 [node name="SafePoint" type="Spatial" parent="CenterContainer/TextureRect/Viewport/Level1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 5.5, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 5.5, 0 )
 script = ExtResource( 9 )
 
 [node name="Area" type="Area" parent="CenterContainer/TextureRect/Viewport/Level1/SafePoint"]
@@ -129,520 +178,12 @@ shape = SubResource( 4 )
 mesh = SubResource( 5 )
 material/0 = ExtResource( 19 )
 
-[node name="Islands" type="Spatial" parent="CenterContainer/TextureRect/Viewport/Level1"]
-script = ExtResource( 15 )
-start_timeout = 30.0
-
-[node name=" Island2" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
-
-[node name=" Island3" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 1.5, -30.5 )
-
-[node name=" Island4" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 1.5, -30.5 )
-
-[node name=" Island5" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -61 )
-
-[node name=" Island6" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 1.5, -91.5 )
-
-[node name=" Island7" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 1.5, -91.5 )
-
-[node name=" Island8" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -122 )
-
-[node name=" Island9" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 1.5, -152.5 )
-
-[node name=" Island10" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 1.5, -152.5 )
-
-[node name=" Island11" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -183 )
-
-[node name=" Island12" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 1.5, -213.5 )
-
-[node name=" Island13" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 1.5, -213.5 )
-
-[node name=" Island14" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 183 )
-
-[node name=" Island15" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 1.5, 152.5 )
-
-[node name=" Island16" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 1.5, 152.5 )
-
-[node name=" Island17" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 122 )
-
-[node name=" Island18" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 1.5, 91.5 )
-
-[node name=" Island19" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 1.5, 91.5 )
-
-[node name=" Island20" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 61 )
-
-[node name=" Island21" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 1.5, 30.5 )
-
-[node name=" Island22" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 1.5, 30.5 )
-
-[node name=" Island23" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 1.5, 30.5 )
-
-[node name=" Island24" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.5, 1.5, 0 )
-
-[node name=" Island25" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 70.5, 1.5, 0 )
-
-[node name=" Island26" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 1.5, -30.5 )
-
-[node name=" Island27" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.5, 1.5, -61 )
-
-[node name=" Island28" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 70.5, 1.5, -61 )
-
-[node name=" Island29" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 1.5, -91.5 )
-
-[node name=" Island30" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.5, 1.5, -122 )
-
-[node name=" Island31" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 70.5, 1.5, -122 )
-
-[node name=" Island32" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 1.5, -152.5 )
-
-[node name=" Island33" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.5, 1.5, -183 )
-
-[node name=" Island34" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 70.5, 1.5, -183 )
-
-[node name=" Island35" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 1.5, 213.5 )
-
-[node name=" Island36" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.5, 1.5, 183 )
-
-[node name=" Island37" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 70.5, 1.5, 183 )
-
-[node name=" Island38" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 1.5, 152.5 )
-
-[node name=" Island39" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.5, 1.5, 122 )
-
-[node name=" Island40" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 70.5, 1.5, 122 )
-
-[node name=" Island41" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 1.5, 91.5 )
-
-[node name=" Island42" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.5, 1.5, 61 )
-
-[node name=" Island43" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 70.5, 1.5, 61 )
-
-[node name=" Island44" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 1.5, 0 )
-
-[node name=" Island45" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 88.5, 1.5, -30.5 )
-
-[node name=" Island46" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 123.5, 1.5, -30.5 )
-
-[node name=" Island47" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 1.5, -61 )
-
-[node name=" Island48" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 88.5, 1.5, -91.5 )
-
-[node name=" Island49" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 123.5, 1.5, -91.5 )
-
-[node name=" Island50" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 1.5, -122 )
-
-[node name=" Island51" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 88.5, 1.5, -152.5 )
-
-[node name=" Island52" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 123.5, 1.5, -152.5 )
-
-[node name=" Island53" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 1.5, -183 )
-
-[node name=" Island54" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 88.5, 1.5, -213.5 )
-
-[node name=" Island55" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 123.5, 1.5, -213.5 )
-
-[node name=" Island56" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 1.5, 183 )
-
-[node name=" Island57" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 88.5, 1.5, 152.5 )
-
-[node name=" Island58" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 123.5, 1.5, 152.5 )
-
-[node name=" Island59" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 1.5, 122 )
-
-[node name=" Island60" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 88.5, 1.5, 91.5 )
-
-[node name=" Island61" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 123.5, 1.5, 91.5 )
-
-[node name=" Island62" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 1.5, 61 )
-
-[node name=" Island63" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 88.5, 1.5, 30.5 )
-
-[node name=" Island64" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 123.5, 1.5, 30.5 )
-
-[node name=" Island65" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 159, 1.5, 30.5 )
-
-[node name=" Island66" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 141.5, 1.5, 0 )
-
-[node name=" Island67" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 176.5, 1.5, 0 )
-
-[node name=" Island68" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 159, 1.5, -30.5 )
-
-[node name=" Island69" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 141.5, 1.5, -61 )
-
-[node name=" Island70" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 176.5, 1.5, -61 )
-
-[node name=" Island71" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 159, 1.5, -91.5 )
-
-[node name=" Island72" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 141.5, 1.5, -122 )
-
-[node name=" Island73" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 176.5, 1.5, -122 )
-
-[node name=" Island74" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 159, 1.5, -152.5 )
-
-[node name=" Island75" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 141.5, 1.5, -183 )
-
-[node name=" Island76" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 176.5, 1.5, -183 )
-
-[node name=" Island77" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 159, 1.5, 213.5 )
-
-[node name=" Island78" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 141.5, 1.5, 183 )
-
-[node name=" Island79" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 176.5, 1.5, 183 )
-
-[node name=" Island80" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 159, 1.5, 152.5 )
-
-[node name=" Island81" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 141.5, 1.5, 122 )
-
-[node name=" Island82" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 176.5, 1.5, 122 )
-
-[node name=" Island83" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 159, 1.5, 91.5 )
-
-[node name=" Island84" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 141.5, 1.5, 61 )
-
-[node name=" Island85" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 176.5, 1.5, 61 )
-
-[node name=" Island86" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -211.5, 1.5, 0 )
-
-[node name=" Island87" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -229, 1.5, -30.5 )
-
-[node name=" Island88" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -194, 1.5, -30.5 )
-
-[node name=" Island89" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -211.5, 1.5, -61 )
-
-[node name=" Island90" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -229, 1.5, -91.5 )
-
-[node name=" Island91" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -194, 1.5, -91.5 )
-
-[node name=" Island92" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -211.5, 1.5, -122 )
-
-[node name=" Island93" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -229, 1.5, -152.5 )
-
-[node name=" Island94" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -194, 1.5, -152.5 )
-
-[node name=" Island95" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -211.5, 1.5, -183 )
-
-[node name=" Island96" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -229, 1.5, -213.5 )
-
-[node name=" Island97" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -194, 1.5, -213.5 )
-
-[node name=" Island98" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -211.5, 1.5, 183 )
-
-[node name=" Island99" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -229, 1.5, 152.5 )
-
-[node name=" Island100" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -194, 1.5, 152.5 )
-
-[node name=" Island101" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -211.5, 1.5, 122 )
-
-[node name=" Island102" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -229, 1.5, 91.5 )
-
-[node name=" Island103" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -194, 1.5, 91.5 )
-
-[node name=" Island104" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -211.5, 1.5, 61 )
-
-[node name=" Island105" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -229, 1.5, 30.5 )
-
-[node name=" Island106" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -194, 1.5, 30.5 )
-
-[node name=" Island107" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -158.5, 1.5, 30.5 )
-
-[node name=" Island108" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -176, 1.5, 0 )
-
-[node name=" Island109" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -141, 1.5, 0 )
-
-[node name=" Island110" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -158.5, 1.5, -30.5 )
-
-[node name=" Island111" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -176, 1.5, -61 )
-
-[node name=" Island112" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -141, 1.5, -61 )
-
-[node name=" Island113" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -158.5, 1.5, -91.5 )
-
-[node name=" Island114" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -176, 1.5, -122 )
-
-[node name=" Island115" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -141, 1.5, -122 )
-
-[node name=" Island116" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -158.5, 1.5, -152.5 )
-
-[node name=" Island117" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -176, 1.5, -183 )
-
-[node name=" Island118" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -141, 1.5, -183 )
-
-[node name=" Island119" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -158.5, 1.5, 213.5 )
-
-[node name=" Island120" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -176, 1.5, 183 )
-
-[node name=" Island121" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -141, 1.5, 183 )
-
-[node name=" Island122" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -158.5, 1.5, 152.5 )
-
-[node name=" Island123" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -176, 1.5, 122 )
-
-[node name=" Island124" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -141, 1.5, 122 )
-
-[node name=" Island125" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -158.5, 1.5, 91.5 )
-
-[node name=" Island126" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -176, 1.5, 61 )
-
-[node name=" Island127" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -141, 1.5, 61 )
-
-[node name=" Island128" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -105.5, 1.5, 0 )
-
-[node name=" Island129" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123, 1.5, -30.5 )
-
-[node name=" Island130" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 1.5, -30.5 )
-
-[node name=" Island131" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -105.5, 1.5, -61 )
-
-[node name=" Island132" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123, 1.5, -91.5 )
-
-[node name=" Island133" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 1.5, -91.5 )
-
-[node name=" Island134" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -105.5, 1.5, -122 )
-
-[node name=" Island135" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123, 1.5, -152.5 )
-
-[node name=" Island136" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 1.5, -152.5 )
-
-[node name=" Island137" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -105.5, 1.5, -183 )
-
-[node name=" Island138" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123, 1.5, -213.5 )
-
-[node name=" Island139" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 1.5, -213.5 )
-
-[node name=" Island140" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -105.5, 1.5, 183 )
-
-[node name=" Island141" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123, 1.5, 152.5 )
-
-[node name=" Island142" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 1.5, 152.5 )
-
-[node name=" Island143" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -105.5, 1.5, 122 )
-
-[node name=" Island144" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123, 1.5, 91.5 )
-
-[node name=" Island145" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 1.5, 91.5 )
-
-[node name=" Island146" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -105.5, 1.5, 61 )
-
-[node name=" Island147" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123, 1.5, 30.5 )
-
-[node name=" Island148" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 1.5, 30.5 )
-
-[node name=" Island149" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.5, 1.5, 30.5 )
-
-[node name=" Island150" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 1.5, 0 )
-
-[node name=" Island151" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 1.5, 0 )
-
-[node name=" Island152" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.5, 1.5, -30.5 )
-
-[node name=" Island153" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 1.5, -61 )
-
-[node name=" Island154" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 1.5, -61 )
-
-[node name=" Island155" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.5, 1.5, -91.5 )
-
-[node name=" Island156" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 1.5, -122 )
-
-[node name=" Island157" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 1.5, -122 )
-
-[node name=" Island158" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.5, 1.5, -152.5 )
-
-[node name=" Island159" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 1.5, -183 )
-
-[node name=" Island160" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 1.5, -183 )
-
-[node name=" Island161" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.5, 1.5, 213.5 )
-
-[node name=" Island162" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 1.5, 183 )
-
-[node name=" Island163" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 1.5, 183 )
-
-[node name=" Island164" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.5, 1.5, 152.5 )
-
-[node name=" Island165" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 1.5, 122 )
-
-[node name=" Island166" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 1.5, 122 )
-
-[node name=" Island167" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.5, 1.5, 91.5 )
-
-[node name=" Island168" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 1.5, 61 )
-
-[node name=" Island169" parent="CenterContainer/TextureRect/Viewport/Level1/Islands" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 1.5, 61 )
-
 [node name="Rocks" type="Spatial" parent="CenterContainer/TextureRect/Viewport/Level1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13, 0 )
 script = ExtResource( 16 )
 active = false
 
-[node name="MeshInstance" type="MeshInstance" parent="CenterContainer/TextureRect/Viewport/Level1"]
+[node name="WhiteCube" type="MeshInstance" parent="CenterContainer/TextureRect/Viewport/Level1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 34 )
 visible = false
 mesh = SubResource( 6 )
@@ -651,6 +192,8 @@ material/0 = SubResource( 7 )
 [node name="DirectionalLight" type="DirectionalLight" parent="CenterContainer/TextureRect/Viewport/Level1"]
 transform = Transform( 1, 0, 0, 0, -0.258819, 0.965926, 0, -0.965926, -0.258819, 0, 45.5, 0 )
 shadow_enabled = true
+
+[node name="Islands2" parent="CenterContainer/TextureRect/Viewport/Level1" instance=ExtResource( 15 )]
 
 [node name="Radar" type="Control" parent="."]
 anchor_left = 1.0
@@ -679,7 +222,7 @@ __meta__ = {
 
 [node name="MarginContainer" type="MarginContainer" parent="TopUI"]
 margin_right = 1920.0
-margin_bottom = 117.0
+margin_bottom = 44.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_right = 50
@@ -694,94 +237,102 @@ __meta__ = {
 margin_left = 50.0
 margin_top = 15.0
 margin_right = 1870.0
-margin_bottom = 102.0
+margin_bottom = 29.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 value = 100.0
 script = ExtResource( 6 )
 
 [node name="TimerContainer" type="CenterContainer" parent="TopUI"]
-margin_top = 121.0
+margin_top = 48.0
 margin_right = 1920.0
-margin_bottom = 135.0
+margin_bottom = 140.0
 
 [node name="Label" type="Label" parent="TopUI/TimerContainer"]
-margin_left = 890.0
-margin_right = 1029.0
-margin_bottom = 14.0
+margin_left = 746.0
+margin_right = 1174.0
+margin_bottom = 92.0
+custom_styles/normal = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Time Remaining: 5:00"
 script = ExtResource( 7 )
 
 [node name="PeopleCounts" type="VBoxContainer" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 52.0
-margin_top = -301.0
-margin_right = 286.0
-margin_bottom = -38.0
+margin_left = 56.0
+margin_top = -543.0
+margin_right = 502.0
+margin_bottom = -19.0
 script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Stranded" type="RichTextLabel" parent="PeopleCounts"]
-margin_right = 234.0
-margin_bottom = 30.0
+[node name="Safe" type="RichTextLabel" parent="PeopleCounts"]
+margin_right = 446.0
+margin_bottom = 93.0
 size_flags_horizontal = 3
+custom_styles/normal = SubResource( 11 )
+custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
-bbcode_text = "[color=yellow]Stranded: 3[/color]
-"
-text = "Stranded: 3
-"
+bbcode_text = "[color=red]Stranded: %s[/color]"
+text = "Stranded: %s"
 fit_content_height = true
+script = ExtResource( 20 )
+
+[node name="Stranded" type="RichTextLabel" parent="PeopleCounts"]
+margin_top = 97.0
+margin_right = 446.0
+margin_bottom = 190.0
+size_flags_horizontal = 3
+custom_styles/normal = SubResource( 11 )
+custom_fonts/normal_font = ExtResource( 14 )
+bbcode_enabled = true
+bbcode_text = "[color=red]Stranded: %s[/color]"
+text = "Stranded: %s"
+fit_content_height = true
+script = ExtResource( 20 )
 
 [node name="InPeril" type="RichTextLabel" parent="PeopleCounts"]
-margin_top = 34.0
-margin_right = 234.0
-margin_bottom = 64.0
+margin_top = 194.0
+margin_right = 446.0
+margin_bottom = 287.0
 size_flags_horizontal = 3
+custom_styles/normal = SubResource( 11 )
+custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
-bbcode_text = "[color=red]In Peril: 3[/color]
-"
-text = "In Peril: 3
-"
+bbcode_text = "[color=red]Stranded: %s[/color]"
+text = "Stranded: %s"
 fit_content_height = true
+script = ExtResource( 20 )
 
 [node name="OnBoard" type="RichTextLabel" parent="PeopleCounts"]
-margin_top = 68.0
-margin_right = 234.0
-margin_bottom = 98.0
+margin_top = 291.0
+margin_right = 446.0
+margin_bottom = 384.0
 size_flags_horizontal = 3
+custom_styles/normal = SubResource( 11 )
+custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
-bbcode_text = "[color=blue]On Board: 3
-"
-text = "On Board: 3
-"
+bbcode_text = "[color=red]Stranded: %s[/color]"
+text = "Stranded: %s"
 fit_content_height = true
-
-[node name="Safe" type="RichTextLabel" parent="PeopleCounts"]
-margin_top = 102.0
-margin_right = 234.0
-margin_bottom = 132.0
-size_flags_horizontal = 3
-bbcode_enabled = true
-bbcode_text = "[color=green]Safe: 3
-"
-text = "Safe: 3
-"
-fit_content_height = true
+script = ExtResource( 20 )
 
 [node name="Died" type="RichTextLabel" parent="PeopleCounts"]
-margin_top = 136.0
-margin_right = 234.0
-margin_bottom = 166.0
+margin_top = 388.0
+margin_right = 446.0
+margin_bottom = 481.0
 size_flags_horizontal = 3
+custom_styles/normal = SubResource( 11 )
+custom_fonts/normal_font = ExtResource( 14 )
 bbcode_enabled = true
-bbcode_text = "[color=green]Safe: 3
-"
-text = "Safe: 3
-"
+bbcode_text = "[color=red]Stranded: %s[/color]"
+text = "Stranded: %s"
 fit_content_height = true
+script = ExtResource( 20 )
 
 [node name="TimeUp" type="MarginContainer" parent="."]
 visible = false

@@ -1,0 +1,513 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/islands/Island1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/islands/Islands.gd" type="Script" id=3]
+
+[node name="Islands" type="Spatial"]
+script = ExtResource( 3 )
+start_timeout = 30.0
+
+[node name=" Island2" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
+safe = true
+
+[node name=" Island3" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 1.5, -30.5 )
+
+[node name=" Island4" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 1.5, -30.5 )
+
+[node name=" Island5" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -61 )
+
+[node name=" Island6" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 1.5, -91.5 )
+
+[node name=" Island7" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 1.5, -91.5 )
+
+[node name=" Island8" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -122 )
+
+[node name=" Island9" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 1.5, -152.5 )
+
+[node name=" Island10" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 1.5, -152.5 )
+
+[node name=" Island11" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -183 )
+
+[node name=" Island12" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 1.5, -213.5 )
+
+[node name=" Island13" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 1.5, -213.5 )
+
+[node name=" Island14" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 183 )
+
+[node name=" Island15" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 1.5, 152.5 )
+
+[node name=" Island16" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 1.5, 152.5 )
+
+[node name=" Island17" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 122 )
+
+[node name=" Island18" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 1.5, 91.5 )
+
+[node name=" Island19" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 1.5, 91.5 )
+
+[node name=" Island20" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 61 )
+
+[node name=" Island21" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 1.5, 30.5 )
+
+[node name=" Island22" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 1.5, 30.5 )
+
+[node name=" Island23" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 1.5, 30.5 )
+
+[node name=" Island24" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.5, 1.5, 0 )
+
+[node name=" Island25" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 70.5, 1.5, 0 )
+
+[node name=" Island26" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 1.5, -30.5 )
+
+[node name=" Island27" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.5, 1.5, -61 )
+
+[node name=" Island28" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 70.5, 1.5, -61 )
+
+[node name=" Island29" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 1.5, -91.5 )
+
+[node name=" Island30" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.5, 1.5, -122 )
+
+[node name=" Island31" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 70.5, 1.5, -122 )
+
+[node name=" Island32" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 1.5, -152.5 )
+
+[node name=" Island33" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.5, 1.5, -183 )
+
+[node name=" Island34" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 70.5, 1.5, -183 )
+
+[node name=" Island35" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 1.5, 213.5 )
+
+[node name=" Island36" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.5, 1.5, 183 )
+
+[node name=" Island37" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 70.5, 1.5, 183 )
+
+[node name=" Island38" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 1.5, 152.5 )
+
+[node name=" Island39" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.5, 1.5, 122 )
+
+[node name=" Island40" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 70.5, 1.5, 122 )
+
+[node name=" Island41" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 1.5, 91.5 )
+
+[node name=" Island42" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.5, 1.5, 61 )
+
+[node name=" Island43" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 70.5, 1.5, 61 )
+
+[node name=" Island44" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 1.5, 0 )
+
+[node name=" Island45" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 88.5, 1.5, -30.5 )
+
+[node name=" Island46" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 123.5, 1.5, -30.5 )
+
+[node name=" Island47" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 1.5, -61 )
+
+[node name=" Island48" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 88.5, 1.5, -91.5 )
+
+[node name=" Island49" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 123.5, 1.5, -91.5 )
+
+[node name=" Island50" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 1.5, -122 )
+
+[node name=" Island51" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 88.5, 1.5, -152.5 )
+
+[node name=" Island52" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 123.5, 1.5, -152.5 )
+
+[node name=" Island53" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 1.5, -183 )
+
+[node name=" Island54" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 88.5, 1.5, -213.5 )
+
+[node name=" Island55" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 123.5, 1.5, -213.5 )
+
+[node name=" Island56" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 1.5, 183 )
+
+[node name=" Island57" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 88.5, 1.5, 152.5 )
+
+[node name=" Island58" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 123.5, 1.5, 152.5 )
+
+[node name=" Island59" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 1.5, 122 )
+
+[node name=" Island60" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 88.5, 1.5, 91.5 )
+
+[node name=" Island61" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 123.5, 1.5, 91.5 )
+
+[node name=" Island62" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 106, 1.5, 61 )
+
+[node name=" Island63" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 88.5, 1.5, 30.5 )
+
+[node name=" Island64" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 123.5, 1.5, 30.5 )
+
+[node name=" Island65" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 159, 1.5, 30.5 )
+
+[node name=" Island66" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 141.5, 1.5, 0 )
+
+[node name=" Island67" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 176.5, 1.5, 0 )
+
+[node name=" Island68" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 159, 1.5, -30.5 )
+
+[node name=" Island69" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 141.5, 1.5, -61 )
+
+[node name=" Island70" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 176.5, 1.5, -61 )
+
+[node name=" Island71" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 159, 1.5, -91.5 )
+
+[node name=" Island72" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 141.5, 1.5, -122 )
+
+[node name=" Island73" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 176.5, 1.5, -122 )
+
+[node name=" Island74" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 159, 1.5, -152.5 )
+
+[node name=" Island75" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 141.5, 1.5, -183 )
+
+[node name=" Island76" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 176.5, 1.5, -183 )
+
+[node name=" Island77" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 159, 1.5, 213.5 )
+
+[node name=" Island78" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 141.5, 1.5, 183 )
+
+[node name=" Island79" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 176.5, 1.5, 183 )
+
+[node name=" Island80" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 159, 1.5, 152.5 )
+
+[node name=" Island81" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 141.5, 1.5, 122 )
+
+[node name=" Island82" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 176.5, 1.5, 122 )
+
+[node name=" Island83" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 159, 1.5, 91.5 )
+
+[node name=" Island84" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 141.5, 1.5, 61 )
+
+[node name=" Island85" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 176.5, 1.5, 61 )
+
+[node name=" Island86" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -211.5, 1.5, 0 )
+
+[node name=" Island87" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -229, 1.5, -30.5 )
+
+[node name=" Island88" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -194, 1.5, -30.5 )
+
+[node name=" Island89" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -211.5, 1.5, -61 )
+
+[node name=" Island90" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -229, 1.5, -91.5 )
+
+[node name=" Island91" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -194, 1.5, -91.5 )
+
+[node name=" Island92" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -211.5, 1.5, -122 )
+
+[node name=" Island93" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -229, 1.5, -152.5 )
+
+[node name=" Island94" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -194, 1.5, -152.5 )
+
+[node name=" Island95" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -211.5, 1.5, -183 )
+
+[node name=" Island96" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -229, 1.5, -213.5 )
+
+[node name=" Island97" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -194, 1.5, -213.5 )
+
+[node name=" Island98" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -211.5, 1.5, 183 )
+
+[node name=" Island99" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -229, 1.5, 152.5 )
+
+[node name=" Island100" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -194, 1.5, 152.5 )
+
+[node name=" Island101" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -211.5, 1.5, 122 )
+
+[node name=" Island102" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -229, 1.5, 91.5 )
+
+[node name=" Island103" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -194, 1.5, 91.5 )
+
+[node name=" Island104" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -211.5, 1.5, 61 )
+
+[node name=" Island105" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -229, 1.5, 30.5 )
+
+[node name=" Island106" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -194, 1.5, 30.5 )
+
+[node name=" Island107" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -158.5, 1.5, 30.5 )
+
+[node name=" Island108" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -176, 1.5, 0 )
+
+[node name=" Island109" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -141, 1.5, 0 )
+
+[node name=" Island110" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -158.5, 1.5, -30.5 )
+
+[node name=" Island111" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -176, 1.5, -61 )
+
+[node name=" Island112" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -141, 1.5, -61 )
+
+[node name=" Island113" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -158.5, 1.5, -91.5 )
+
+[node name=" Island114" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -176, 1.5, -122 )
+
+[node name=" Island115" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -141, 1.5, -122 )
+
+[node name=" Island116" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -158.5, 1.5, -152.5 )
+
+[node name=" Island117" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -176, 1.5, -183 )
+
+[node name=" Island118" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -141, 1.5, -183 )
+
+[node name=" Island119" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -158.5, 1.5, 213.5 )
+
+[node name=" Island120" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -176, 1.5, 183 )
+
+[node name=" Island121" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -141, 1.5, 183 )
+
+[node name=" Island122" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -158.5, 1.5, 152.5 )
+
+[node name=" Island123" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -176, 1.5, 122 )
+
+[node name=" Island124" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -141, 1.5, 122 )
+
+[node name=" Island125" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -158.5, 1.5, 91.5 )
+
+[node name=" Island126" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -176, 1.5, 61 )
+
+[node name=" Island127" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -141, 1.5, 61 )
+
+[node name=" Island128" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -105.5, 1.5, 0 )
+
+[node name=" Island129" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123, 1.5, -30.5 )
+
+[node name=" Island130" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 1.5, -30.5 )
+
+[node name=" Island131" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -105.5, 1.5, -61 )
+
+[node name=" Island132" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123, 1.5, -91.5 )
+
+[node name=" Island133" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 1.5, -91.5 )
+
+[node name=" Island134" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -105.5, 1.5, -122 )
+
+[node name=" Island135" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123, 1.5, -152.5 )
+
+[node name=" Island136" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 1.5, -152.5 )
+
+[node name=" Island137" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -105.5, 1.5, -183 )
+
+[node name=" Island138" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123, 1.5, -213.5 )
+
+[node name=" Island139" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 1.5, -213.5 )
+
+[node name=" Island140" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -105.5, 1.5, 183 )
+
+[node name=" Island141" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123, 1.5, 152.5 )
+
+[node name=" Island142" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 1.5, 152.5 )
+
+[node name=" Island143" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -105.5, 1.5, 122 )
+
+[node name=" Island144" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123, 1.5, 91.5 )
+
+[node name=" Island145" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 1.5, 91.5 )
+
+[node name=" Island146" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -105.5, 1.5, 61 )
+
+[node name=" Island147" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123, 1.5, 30.5 )
+
+[node name=" Island148" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 1.5, 30.5 )
+
+[node name=" Island149" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.5, 1.5, 30.5 )
+
+[node name=" Island150" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 1.5, 0 )
+
+[node name=" Island151" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 1.5, 0 )
+
+[node name=" Island152" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.5, 1.5, -30.5 )
+
+[node name=" Island153" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 1.5, -61 )
+
+[node name=" Island154" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 1.5, -61 )
+
+[node name=" Island155" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.5, 1.5, -91.5 )
+
+[node name=" Island156" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 1.5, -122 )
+
+[node name=" Island157" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 1.5, -122 )
+
+[node name=" Island158" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.5, 1.5, -152.5 )
+
+[node name=" Island159" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 1.5, -183 )
+
+[node name=" Island160" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 1.5, -183 )
+
+[node name=" Island161" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.5, 1.5, 213.5 )
+
+[node name=" Island162" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 1.5, 183 )
+
+[node name=" Island163" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 1.5, 183 )
+
+[node name=" Island164" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.5, 1.5, 152.5 )
+
+[node name=" Island165" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 1.5, 122 )
+
+[node name=" Island166" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 1.5, 122 )
+
+[node name=" Island167" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.5, 1.5, 91.5 )
+
+[node name=" Island168" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 1.5, 61 )
+
+[node name=" Island169" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 1.5, 61 )

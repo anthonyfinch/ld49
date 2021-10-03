@@ -6,10 +6,10 @@ onready var mesh = $Mesh
 onready var ray = $Mesh/RayCast
 
 var jump_force = 15
-var acceleration = 50
+var acceleration = 70
 var steering = 21.0
 var turn_speed = 5
-var turn_stop_limit = 0.75
+var turn_stop_limit = 0.5
 
 var speed_input = 0
 var rotate_input = 0

@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource( 1 )
-time_limit = 30.0
+time_limit = 60.0
 level = "res://src/levels/Level1.tscn"

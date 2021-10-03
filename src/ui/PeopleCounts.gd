@@ -31,24 +31,29 @@ func _process(_delta):
 
 				
 		if stranded != _stranded_count or _first:
-			var p_template = "[color=yellow]Stranded: %s[/color]\n"
+			var p_template = "[color=#124e89]Stranded: %s[/color]"
 			_stranded.bbcode_text = p_template % stranded
+			_stranded.punch()
 			_stranded_count = stranded
 
 		if in_peril != _peril_count or _first:
-			var i_template = "[color=red]In Peril!: %s[/color]\n"
+			var i_template = "[color=#e43b44]In Peril: %s[/color]"
 			_in_peril.bbcode_text = i_template % in_peril
+			_in_peril.punch()
 			_peril_count = in_peril
 
 		_first = false
 
 
 func _update_counts():
-	var b_template = "[color=blue]On Board: %s[/color]\n"
+	var b_template = "[color=#0099db]On Board: %s[/color]"
 	_on_board.bbcode_text = b_template % _state.on_board
+	_on_board.punch()
 
-	var s_template = "[color=green]Safe: %s[/color]\n"
+	var s_template = "[color=#63c74d]Safe: %s[/color]"
 	_safe.bbcode_text = s_template % _state.safe
+	_safe.punch()
 
-	var d_template = "[color=red]Died: %s[/color]\n"
+	var d_template = "[color=#5a6988]Died: %s[/color]"
 	_died.bbcode_text = d_template % _state.died
+	_died.punch()
